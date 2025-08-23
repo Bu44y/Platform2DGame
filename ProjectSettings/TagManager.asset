@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - KillPlane
+  - Platformer
   layers:
   - Default
   - TransparentFX

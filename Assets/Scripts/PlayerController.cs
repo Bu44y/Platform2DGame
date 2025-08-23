@@ -77,4 +77,20 @@ public class PlayerController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    private void OnCollisionEnter2D(Collision2D target)
+    {
+        if (target.gameObject.CompareTag("Platformer"))
+        {
+            transform.parent = target.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D target)
+    {
+        if (target.gameObject.CompareTag("Platformer"))
+        {
+            transform.parent = null;
+        }
+    }
 }
