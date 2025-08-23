@@ -71,6 +71,12 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager.instance.RestartGame();
         }
+
+        if (target.gameObject.CompareTag("Item"))
+        {
+            Destroy(target.gameObject);
+            LevelManager.instance.AddScore();
+        }
     }
 
     
