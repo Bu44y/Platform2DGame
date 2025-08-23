@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public bool isGrounded;
 
+    public float hitForce = 5f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -86,6 +88,11 @@ public class PlayerController : MonoBehaviour
         if (target.gameObject.CompareTag("Platformer"))
         {
             transform.parent = target.transform;
+        }
+        if (target.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(target.gameObject);
+            rb.velocity = new Vector3(rb.velocity.x, hitForce, 0f);
         }
     }
 
