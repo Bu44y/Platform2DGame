@@ -726,6 +726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237365227}
+  - component: {fileID: 237365228}
   m_Layer: 0
   m_Name: MoveObject
   m_TagString: Untagged
@@ -751,6 +752,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237365228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237365226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e7f0468b5317014397b7bea5f853621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformer: {fileID: 1397246341}
+  startPoint: {fileID: 542973106}
+  endPoint: {fileID: 660272226}
+  speed: 3
 --- !u!1001 &240997266
 PrefabInstance:
   m_ObjectHideFlags: 0
