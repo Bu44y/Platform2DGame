@@ -69,14 +69,11 @@ public class PlayerController : MonoBehaviour
     {
         if (target.gameObject.CompareTag("KillPlane"))
         {
-            RestartGame();
+            LevelManager.instance.RestartGame();
         }
     }
 
-    void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D target)
     {
