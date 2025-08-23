@@ -9,14 +9,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpSpeed = 8f;
 
+    private Animator anim;
+
+    public LayerMask groundLayer;
+    public bool isGrounded;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        checkGrounded();
         if (Input.GetAxis("Horizontal") > 0)
         {
             rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0f);
@@ -32,9 +39,28 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, 0f);
+        }
+
+        anim.SetFloat("speed",Mathf.Abs(rb.velocity.x));
+        anim.SetBool("isJumping", isGrounded);
+    }
+
+    public void checkGrounded()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+        RaycastHit2D hit = Physics2D.Raycast(position, direction,distance,groundLayer);
+        if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 }
